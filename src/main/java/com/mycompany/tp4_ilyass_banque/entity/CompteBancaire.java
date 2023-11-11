@@ -14,32 +14,26 @@ import java.io.Serializable;
  *
  * @author Ollan
  */
-
-
 @Entity
 public class CompteBancaire implements Serializable {
-
-    
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     private int solde;
-     
-     private String nom;
-     
-        public CompteBancaire(String nom, int solde) {  
-  this.nom = nom;  
-  this.solde = solde;  
-}  
-     
+
+    private String nom;
+
+    public CompteBancaire(String nom, int solde) {
+        this.nom = nom;
+        this.solde = solde;
+    }
 
     public Long getId() {
         return id;
     }
-   
 
     /**
      * Get the value of solde
@@ -59,8 +53,6 @@ public class CompteBancaire implements Serializable {
         this.solde = solde;
     }
 
-   
-
     /**
      * Get the value of nom
      *
@@ -78,20 +70,18 @@ public class CompteBancaire implements Serializable {
     public void setNom(String nom) {
         this.nom = nom;
     }
-    
-             
-public void deposer(int montant) {  
-  solde += montant;  
-}  
-                  
-public void retirer(int montant) {  
-  if (montant < solde) {  
-    solde -= montant;  
-  } else {
-    solde = 0;
-  }  
-}
 
+    public void deposer(int montant) {
+        solde += montant;
+    }
+
+    public void retirer(int montant) {
+        if (montant < solde) {
+            solde -= montant;
+        } else {
+            solde = 0;
+        }
+    }
 
     @Override
     public int hashCode() {
@@ -117,5 +107,5 @@ public void retirer(int montant) {
     public String toString() {
         return "com.mycompany.tp4_ilyass_banque.entity.CompteBancaire[ id=" + id + " ]";
     }
-    
+
 }
